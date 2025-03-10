@@ -29,6 +29,7 @@ int main()
 
   board.displayGameBoard();
   board.validityCheck(input);
+  board.fullBoard();
   //get player names
 
   //GAME LOOP BEGINS (42 turns or until winner is declared)

@@ -10,7 +10,7 @@ GameBoard::GameBoard()
 void GameBoard::initializeGameBoard()
 {
   //initialize GameBoard with ' ' for all elements
-  for (int i = 0; i< 6; i++)
+  for (int i = 0; i < 6; i++)
       {
         for (int j = 0; j < 7; j++)
         {
@@ -35,31 +35,42 @@ void GameBoard::displayGameBoard() const
 }
 
 //check if there is a space at top of board to place piece
-bool GameBoard::validityCheck(int col)
+bool GameBoard::validityCheck(int col) const
 {
   bool valid_play = false;
   if (col < 0 || col > 6)
   {
     std::cout << "Please select a column that is listed, sweaty. NEXT!!" << std::endl;
-    return false;
+    return valid_play;
   }
   
   if (board[0][col] != ' ')
   {
     std::cout << "That column is full, choose another" << std::endl;
-    return false;
+    return valid_play;
   }
   else
   {
+    valid_play = true;
     std::cout << "That's one valid ass move" << std::endl;
-    return true;
+    return valid_play;
   }
 }
-    /*bool to see if board is full
-void GameBoard::fullBoard()
+
+//bool to see if board is full
+bool GameBoard::fullBoard() const
 {
-;
+    for (int i = 0; i < 7; i++)
+    {
+        if (board[0][i] == ' ')
+        {
+          return false;
+        }
+    }
+    std::cout << "That board ain't full";
+    return true;
 }
+/*
 //check for a vicroy - do this later
 void GameBoard::winCheck()
 {
