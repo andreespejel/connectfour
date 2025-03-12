@@ -25,11 +25,13 @@ int main()
 {
   //create / initialize board / show board
   GameBoard board;
-  int input = 3;
+  int column_choice = 3;
+  std::cout << "Player 1 has selected column " << column_choice << std::endl;
 
   board.displayGameBoard();
-  board.validityCheck(input);
   board.fullBoard();
+  board.placePiece(column_choice);
+  board.displayGameBoard();
   //get player names
 
   //GAME LOOP BEGINS (42 turns or until winner is declared)
